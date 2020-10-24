@@ -34,6 +34,17 @@ class StoreState {
   String get appName => _data.appName;
   List<CartItem> get cartItems => _data.cartItems;
 
+  double getCartItemsTotal() {
+    var amountList =
+        _data.cartItems.map<double>((e) => e.price * e.quantity).toList();
+
+    if (amountList.length > 0) {
+      return amountList.reduce((value, element) => value + element);
+    } else {
+      return 0.0;
+    }
+  }
+
   StoreState({@required String appName}) {
     // Initial data mapping.
     _data.appName = appName;
