@@ -12,11 +12,16 @@ class AddNewButton extends StatelessWidget {
           };
         },
         builder: (buildContext, callback) => RaisedButton(
+              onPressed: () => callback(),
+              padding: EdgeInsets.all(10),
+              color: Theme.of(buildContext).primaryColor,
               child: Text(
                 'Add Item',
+                style: TextStyle(
+                  color: Theme.of(buildContext).accentColor
+                ),
                 textScaleFactor: 1.5,
               ),
-              onPressed: () => callback(),
             ));
   }
 }

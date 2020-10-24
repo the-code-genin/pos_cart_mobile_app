@@ -29,6 +29,9 @@ class CustomAppBar extends AppBar {
             padding: EdgeInsets.all(10),
             child: Text(
               'Clear',
+              style: TextStyle(
+                color: Theme.of(buildContext).accentColor
+              ),
               textScaleFactor: 1.25
             )
           )
