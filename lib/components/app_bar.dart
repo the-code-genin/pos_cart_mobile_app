@@ -24,7 +24,14 @@ class CustomAppBar extends AppBar {
       builder: (buildContext, callback) {
         return GestureDetector(
           onTap: () => callback(),
-          child: Text('Clear')
+          child: Container(
+            alignment: AlignmentDirectional.center,
+            padding: EdgeInsets.all(10),
+            child: Text(
+              'Clear',
+              textScaleFactor: 1.25
+            )
+          )
         );
       }
     )
