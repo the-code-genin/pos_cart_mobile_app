@@ -1,9 +1,9 @@
 import 'store_state_reducer_action.dart';
 
 /// Store State Reducer.
-class StoreStateReducer {
+class StoreStateReducer<T extends dynamic> {
   StoreStateReducerAction action;
-  dynamic payload;
+  T payload;
 
   StoreStateReducer({this.action, this.payload});
 }
