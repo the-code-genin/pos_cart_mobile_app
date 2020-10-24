@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pos_cart_mobile_app/store/store.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-class AddNewButton extends StatelessWidget {
+class HomeAddNewButton extends StatelessWidget {
   Widget build(BuildContext buildContext) {
     return StoreConnector<StoreState, VoidCallback>(
         converter: (store) {
