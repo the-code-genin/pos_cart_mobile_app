@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
         title: store.state.appName,
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          accentColor: Colors.white,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         initialRoute: '/',
