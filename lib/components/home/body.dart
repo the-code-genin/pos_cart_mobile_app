@@ -10,14 +10,21 @@ class HomeBody extends StatelessWidget {
       converter: (store) => store.state.cartItems,
       builder: (buildContext, cartItems) => Container(
         color: Colors.grey[100],
-        child: ListView.builder(
-          itemCount: cartItems.length,
-          itemBuilder: (buildContext, index) {
-            return CartItemTile(
-              cartItem: cartItems.elementAt(index),
-              cartItemIndex: index,
-            );
-          },
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: cartItems.length,
+                itemBuilder: (buildContext, index) {
+                  return CartItemTile(
+                    cartItemIndex: index,
+                    cartItem: cartItems.elementAt(index),
+                  );
+                },
+              ),
+            ),
+            HomeBottomSheet(),
+          ],
         ),
       ),
     );

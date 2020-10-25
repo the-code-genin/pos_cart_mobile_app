@@ -7,6 +7,7 @@ class HomeBottomSheet extends StatelessWidget {
   Widget build(BuildContext buildContext) {
     return Container(
       padding: EdgeInsets.all(8),
+      color: Colors.white,
       child: Row(
         children: [
           Expanded(
