@@ -12,7 +12,7 @@ class HomeAddNewButton extends StatelessWidget {
           };
         },
         builder: (buildContext, callback) => RaisedButton(
-              onPressed: () => callback(),
+              onPressed: callback,
               padding: EdgeInsets.all(10),
               color: Theme.of(buildContext).primaryColor,
               child: Text(

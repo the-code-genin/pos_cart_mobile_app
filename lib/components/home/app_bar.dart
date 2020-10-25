@@ -23,7 +23,7 @@ class HomeAppBar extends AppBar {
       },
       builder: (buildContext, callback) {
         return GestureDetector(
-          onTap: () => callback(),
+          onTap: callback,
           child: Container(
             alignment: AlignmentDirectional.center,
             padding: EdgeInsets.all(10),
