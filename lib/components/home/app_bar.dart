@@ -16,9 +16,11 @@ class HomeAppBar extends AppBar {
     StoreConnector<StoreState, VoidCallback>(
       converter: (store) {
         return () {
-          store.dispatch(StoreStateReducer(
-            action: StoreStateReducerAction.clearCartItem
-          ));
+          store.dispatch(
+            StoreStateReducer(
+              action: StoreStateReducerAction.clearCartItem,
+            ),
+          );
         };
       },
       builder: (buildContext, callback) {
@@ -29,14 +31,12 @@ class HomeAppBar extends AppBar {
             padding: EdgeInsets.all(10),
             child: Text(
               'Clear',
-              style: TextStyle(
-                color: Theme.of(buildContext).accentColor
-              ),
-              textScaleFactor: 1.25
-            )
-          )
+              style: TextStyle(color: Theme.of(buildContext).accentColor),
+              textScaleFactor: 1.25,
+            ),
+          ),
         );
-      }
-    )
+      },
+    ),
   ];
 }

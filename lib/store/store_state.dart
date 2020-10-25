@@ -35,7 +35,7 @@ class StoreState {
     // clear the cart
     StoreStateReducerAction.clearCartItem: (data, {payload}) {
       data.cartItems.removeRange(0, data.cartItems.length);
-    }
+    },
   };
 
   /// Getters

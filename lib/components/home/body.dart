@@ -7,20 +7,19 @@ import 'package:pos_cart_mobile_app/components/components.dart';
 class HomeBody extends StatelessWidget {
   Widget build(BuildContext buildContext) {
     return StoreConnector<StoreState, List<CartItem>>(
-        converter: (store) => store.state.cartItems,
-        builder: (buildContext, cartItems) => Container(
-          color: Colors.grey[100],
-          child: ListView.builder(
-            itemCount: cartItems.length,
-            itemBuilder: (buildContext, index) {
-              var cartItem = cartItems.elementAt(index);
-              return CartItemTile(
-                cartItem: cartItem,
-                cartItemIndex: index,
-              );
-            }
-          )
-        )
-      );
+      converter: (store) => store.state.cartItems,
+      builder: (buildContext, cartItems) => Container(
+        color: Colors.grey[100],
+        child: ListView.builder(
+          itemCount: cartItems.length,
+          itemBuilder: (buildContext, index) {
+            return CartItemTile(
+              cartItem: cartItems.elementAt(index),
+              cartItemIndex: index,
+            );
+          },
+        ),
+      ),
+    );
   }
 }
