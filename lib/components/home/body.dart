@@ -8,9 +8,13 @@ class HomeBody extends StatelessWidget {
   Widget build(BuildContext buildContext) {
     return StoreConnector<StoreState, List<CartItem>>(
         converter: (store) => store.state.cartItems,
-        builder: (buildContext, cartItems) => ListView(
-            children: cartItems
-                .map<Widget>((CartItem cartItem) => CartItemTile(cartItem: cartItem))
-                .toList()));
+        builder: (buildContext, cartItems) => ListView.builder(
+          itemCount: cartItems.length,
+          itemBuilder: (buildContext, index) {
+            var cartItem = cartItems.elementAt(index);
+            return CartItemTile(cartItem: cartItem);
+          }
+        )
+      );
   }
 }
