@@ -13,7 +13,11 @@ class HomeBottomSheet extends StatelessWidget {
             child: StoreConnector<StoreState, double>(
               converter: (store) => store.state.getCartItemsTotal(),
               builder: (buildContext, total) {
-                return Text('Total: N$total', textScaleFactor: 1.75);
+                return Text(
+                  'Total: N$total',
+                  textScaleFactor: 1.75,
+                  overflow: TextOverflow.fade,
+                );
               },
             ),
           ),

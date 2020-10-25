@@ -16,7 +16,7 @@ class CartItemTile extends StatelessWidget {
     if (_cartItem.name.length > 0) {
       return Text(
         _cartItem.name,
-        softWrap: true,
+        overflow: TextOverflow.ellipsis,
         style: const TextStyle(
           fontSize: 18,
         ),
@@ -24,7 +24,7 @@ class CartItemTile extends StatelessWidget {
     } else {
       return Text(
         'Click to edit item',
-        softWrap: true,
+        overflow: TextOverflow.ellipsis,
         style: TextStyle(
           fontSize: 18,
           color: Colors.grey[600],
@@ -59,6 +59,7 @@ class CartItemTile extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 5),
                   child: Text(
                     'N${_cartItem.price}  --  ${_cartItem.quantity} pcs',
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: Colors.grey[700],
                       fontSize: 14,
