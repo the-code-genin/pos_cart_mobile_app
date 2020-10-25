@@ -14,7 +14,7 @@ class StoreState {
   final Map<StoreStateReducerAction, StoreStateReducerFunction> _reducers = {
     // Add new cart item
     StoreStateReducerAction.addCartItem: (data, {payload}) {
-      data.cartItems.add(CartItem());
+      data.cartItems.add(payload as CartItem);
     },
 
     // Update cart item at index
