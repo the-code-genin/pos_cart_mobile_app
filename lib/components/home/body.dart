@@ -14,7 +14,10 @@ class HomeBody extends StatelessWidget {
             itemCount: cartItems.length,
             itemBuilder: (buildContext, index) {
               var cartItem = cartItems.elementAt(index);
-              return CartItemTile(cartItem: cartItem);
+              return CartItemTile(
+                cartItem: cartItem,
+                cartItemIndex: index,
+              );
             }
           )
         )
