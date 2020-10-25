@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => HomeScreen(),
+          '/add-new-cart-item': (context) => AddNewCartItemScreen(),
         },
       ),
     );
