@@ -17,11 +17,19 @@ class StoreState {
       data.cartItems.add(CartItem());
     },
 
+    // Update cart item at index
+    StoreStateReducerAction.updateCartItem: (data, {payload}) {
+      var map = payload as Map<String, dynamic>;
+
+      int index = map['index'];
+      CartItem cartItem = map['cartItem'];
+
+      data.cartItems.replaceRange(index, index + 1, [cartItem]);
+    },
+
     // Remove cart item
     StoreStateReducerAction.removeCartItem: (data, {payload}) {
-      if (payload.runtimeType != CartItem) return;
-
-      data.cartItems.remove(payload);
+      data.cartItems.removeAt(payload as int);
     },
 
     // clear the cart
