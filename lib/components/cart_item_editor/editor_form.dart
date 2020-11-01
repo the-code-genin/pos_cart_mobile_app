@@ -28,6 +28,7 @@ class CartItemEditor extends StatelessWidget {
     String label,
     bool decimal = false,
     InputOnChangeCallback onChange,
+    String value,
   }) {
     return _input(
       field: TextField(
@@ -35,6 +36,9 @@ class CartItemEditor extends StatelessWidget {
         keyboardType: TextInputType.numberWithOptions(decimal: decimal),
         decoration: InputDecoration(labelText: label),
         onChanged: (value) => onChange(value),
+        controller: TextEditingController(
+          text: value
+        ),
       ),
     );
   }
@@ -42,12 +46,16 @@ class CartItemEditor extends StatelessWidget {
   Widget _textInput({
     String label,
     InputOnChangeCallback onChange,
+    String value,
   }) {
     return _input(
       field: TextField(
         style: const TextStyle(fontSize: 18),
         decoration: InputDecoration(labelText: label),
         onChanged: (value) => onChange(value),
+        controller: TextEditingController(
+          text: value
+        ),
       ),
     );
   }
@@ -63,6 +71,7 @@ class CartItemEditor extends StatelessWidget {
               onChange: (value) {
                 _cartItem.name = value;
               },
+              value: _cartItem.name,
             ),
             _numberInput(
               label: 'Item Price',
@@ -70,12 +79,14 @@ class CartItemEditor extends StatelessWidget {
               onChange: (value) {
                 _cartItem.price = double.parse(value);
               },
+              value: _cartItem.price.toString(),
             ),
             _numberInput(
               label: 'Item Quantity',
               onChange: (value) {
                 _cartItem.quantity = int.parse(value);
               },
+              value: _cartItem.quantity.toString(),
             ),
             Container(
               padding: EdgeInsets.only(top: 30),
