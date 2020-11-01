@@ -34,62 +34,71 @@ class CartItemTile extends StatelessWidget {
   }
 
   Widget build(BuildContext buildContext) {
-    return Container(
-      margin: const EdgeInsets.all(5),
-      padding: const EdgeInsets.only(left: 10, right: 3, top: 10, bottom: 10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(3)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[400],
-            offset: Offset(0, 2),
-            blurRadius: 5,
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _title(),
-                Container(
-                  margin: const EdgeInsets.only(top: 5),
-                  child: Text(
-                    'N${_cartItem.price}  --  ${_cartItem.quantity} pcs',
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: Colors.grey[700],
-                      fontSize: 14,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(
+          buildContext,
+          '/edit-cart-item',
+          arguments: _cartItemIndex,
+        );
+      },
+      child: Container(
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.only(left: 10, right: 3, top: 10, bottom: 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(3)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey[400],
+              offset: Offset(0, 2),
+              blurRadius: 5,
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _title(),
+                  Container(
+                    margin: const EdgeInsets.only(top: 5),
+                    child: Text(
+                      'N${_cartItem.price}  --  ${_cartItem.quantity} pcs',
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: 14,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          StoreConnector<StoreState, VoidCallback>(
-            converter: (store) {
-              return () {
-                store.dispatch(
-                  StoreStateReducer(
-                    action: StoreStateReducerAction.removeCartItem,
-                    payload: _cartItemIndex,
-                  ),
+            StoreConnector<StoreState, VoidCallback>(
+              converter: (store) {
+                return () {
+                  store.dispatch(
+                    StoreStateReducer(
+                      action: StoreStateReducerAction.removeCartItem,
+                      payload: _cartItemIndex,
+                    ),
+                  );
+                };
+              },
+              builder: (buildContext, callback) {
+                return IconButton(
+                  icon: const Icon(Icons.delete),
+                  color: Colors.red,
+                  iconSize: 32,
+                  onPressed: callback,
                 );
-              };
-            },
-            builder: (buildContext, callback) {
-              return IconButton(
-                icon: const Icon(Icons.delete),
-                color: Colors.red,
-                iconSize: 32,
-                onPressed: callback,
-              );
-            },
-          ),
-        ],
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
