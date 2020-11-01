@@ -1,4 +1,4 @@
-package com.example.pos_cart_mobile_app
+package com.iyiola_am.pos_cart_mobile_app
 
 import io.flutter.embedding.android.FlutterActivity
 
