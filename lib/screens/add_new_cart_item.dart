@@ -9,7 +9,7 @@ class AddNewCartItemScreen extends StatefulWidget {
 }
 
 class _AddNewCartItemScreenState extends State<AddNewCartItemScreen> {
-  final CartItem _cartItem = CartItem();
+  final CartItem _cartItem = CartItem(quantity: 1);
 
   @override
   Widget build(BuildContext context) {
