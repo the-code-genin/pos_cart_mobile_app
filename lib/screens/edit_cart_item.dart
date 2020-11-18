@@ -14,7 +14,14 @@ class _EditCartItemScreenState extends State<EditCartItemScreen> {
     var cartItemIndex = ModalRoute.of(context).settings.arguments as int;
 
     return StoreConnector<StoreState, CartItem>(
-      converter: (store) => store.state.cartItems[cartItemIndex],
+      converter: (store) {
+        var cartItem = store.state.cartItems[cartItemIndex];
+        return CartItem(
+          name: cartItem.name,
+          quantity: cartItem.quantity,
+          price: cartItem.price,
+        );
+      },
       builder: (context, cartItem) {
         return Scaffold(
           appBar: CartItemEditorAppBar(
