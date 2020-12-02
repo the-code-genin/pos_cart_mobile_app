@@ -6,7 +6,7 @@ import 'package:pos_cart_mobile_app/components/components.dart';
 class HomeBottomSheet extends StatelessWidget {
   Widget build(BuildContext buildContext) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: EdgeInsets.all(5),
       color: Colors.white,
       child: Row(
         children: [
@@ -16,7 +16,7 @@ class HomeBottomSheet extends StatelessWidget {
               builder: (buildContext, total) {
                 return Text(
                   'Total: N$total',
-                  textScaleFactor: 1.75,
+                  textScaleFactor: 1.5,
                   overflow: TextOverflow.fade,
                 );
               },

@@ -9,9 +9,9 @@ const appName = 'POS Cart';
 
 // Initialize app
 void main() {
-  StoreState storeState = StoreState(appName: appName);
-  Store store = Store<StoreState>(StoreReducer(), initialState: storeState);
-  runApp(MyApp(store: store));
+  StoreState storeState = StoreState(appName: appName); // The app store state instance
+  Store store = Store<StoreState>(StoreReducer(), initialState: storeState); // The store instance
+  runApp(MyApp(store: store)); // App entry point
 }
 
 // App

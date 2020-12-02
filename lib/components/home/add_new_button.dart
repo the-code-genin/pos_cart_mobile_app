@@ -6,14 +6,14 @@ class HomeAddNewButton extends StatelessWidget {
       onPressed: () {
         Navigator.pushNamed(buildContext, '/add-new-cart-item');
       },
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(8),
       color: Theme.of(buildContext).primaryColor,
       child: Text(
         'Add Item',
         style: TextStyle(
           color: Theme.of(buildContext).accentColor,
         ),
-        textScaleFactor: 1.5,
+        textScaleFactor: 1.25,
       ),
     );
   }
